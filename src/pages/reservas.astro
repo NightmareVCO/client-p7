@@ -1,0 +1,22 @@
+---
+import CalendarFilter from "@components/Calendar/CalendarFilter";
+import Header from "@components/Header/Header";
+import ReservationModal from "@components/Modal/ReservationModal";
+import Table from "@components/Table/Table";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout>
+    <section class="container mx-auto mt-10">
+        <Header
+            title="Reservaciones"
+            description="Maneja aquí las reservaciones"
+        >
+            <div class="flex gap-x-6 justify-center items-center">
+                <CalendarFilter client:only />
+                <ReservationModal client:visible />
+            </div>
+        </Header>
+        <Table client:only />
+    </section>
+</Layout>

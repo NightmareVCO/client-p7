@@ -1,0 +1,49 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import BasicNavbar from '@components/BasicNavbar/BasicNavbar';
+import '../styles/global.css';
+import Background from '@src/components/Background/Background.astro';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>LabReservations</title>
+		<ClientRouter />
+	</head>
+	<body class="relative w-full h-full light">
+		<Background />
+		<header>
+			<BasicNavbar client:visible />
+		</header>
+		<slot />
+	</body>
+</html>
+
+<style>
+	:root {
+		color-scheme: light dark;
+	}
+
+	html {
+		font-family: "Onest Variable", system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		overflow: hidden;
+	}
+
+	@media (prefers-reduce-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+</style>
